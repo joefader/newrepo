@@ -57,6 +57,7 @@ ggplot(gmpts, aes(longitude, latitude, group = status))+
   geom_point(color = "navy", size = .5, alpha = .4)
 ```
 
+``` {r}
 # Analysis Section
 # Calculate distance to ship at the start of the CEE
 gmpts$d2ship <- rdist.earth.vec(cbind(kStart$longitude, kStart$latitude), 
@@ -70,7 +71,5 @@ gmpts %>%
 gmpts.fit <- with(gmpts, lmer(d2ship ~ status + (1 | trackNum)))
 gmpts.fit
 summary(gmpts.fit)
-
-
 ```
 
